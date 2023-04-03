@@ -1,3 +1,7 @@
+<script>
+	import Button from './Button.svelte';
+</script>
+
 <body class="bg-gradient-to-r from-cyan-500 to-blue-500">
 	<div class="bg-blue-50 flex justify-left p-2 border-4 rounded-b-lg border-blue-50 border-t-0">
 		<h1
@@ -15,76 +19,13 @@
 		</h2>
 		<ul class="p-2 space-y-2">
 			<li>
-				<div class="bg-gradient-to-r from-cyan-500 to-blue-500 pl-4 rounded-lg p-1">
-					<input type="radio" id="niska" name="stepen" class="hidden peer" required />
-					<label
-						for="niska"
-						class="inline-flex w-full p-2 text-blue-500 bg-blue-50 rounded-md cursor-pointer peer-checked:hidden"
-					>
-						<div class="block">
-							<div
-								class="w-full text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500 peer-checked/radio:bg-blue-50"
-							>
-								Лека
-							</div>
-						</div>
-					</label>
-					<div class="hidden peer-checked:block">
-						<label
-							for="niska"
-							class="inline-flex w-full p-2 bg-blue-50 rounded-md cursor-pointer text-lg font-semibold text-transparent bg-clip-text"
-							>Лека
-						</label>
-					</div>
-				</div>
+				<Button label="Ниска" id="low" />
 			</li>
 			<li>
-				<div class="bg-gradient-to-r from-cyan-500 to-blue-500 pl-4 rounded-lg p-1">
-					<input type="radio" id="sredna" name="stepen" class="hidden peer" required />
-					<label
-						for="sredna"
-						class="inline-flex w-full p-2 text-blue-500 bg-blue-50 rounded-md cursor-pointer peer-checked:hidden"
-					>
-						<div class="block">
-							<div
-								class="w-full text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500 peer-checked/radio:bg-blue-50"
-							>
-								Средна
-							</div>
-						</div>
-					</label>
-					<div class="hidden peer-checked:block">
-						<label
-							for="sredna"
-							class="inline-flex w-full p-2 bg-blue-50 rounded-md cursor-pointer text-lg font-semibold text-transparent bg-clip-text"
-							>Средна
-						</label>
-					</div>
-				</div>
+				<Button label="Средна" id="middle" />
 			</li>
 			<li>
-				<div class="bg-gradient-to-r from-cyan-500 to-blue-500 pl-4 rounded-lg p-1">
-					<input type="radio" id="visoka" name="stepen" class="hidden peer" required />
-					<label
-						for="visoka"
-						class="inline-flex w-full p-2 text-blue-500 bg-blue-50 rounded-md cursor-pointer peer-checked:hidden"
-					>
-						<div class="block">
-							<div
-								class="w-full text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500 peer-checked/radio:bg-blue-50"
-							>
-								Висока
-							</div>
-						</div>
-					</label>
-					<div class="hidden peer-checked:block">
-						<label
-							for="visoka"
-							class="inline-flex w-full p-2 bg-blue-50 rounded-md cursor-pointer text-lg font-semibold text-transparent bg-clip-text"
-							>Висока
-						</label>
-					</div>
-				</div>
+				<Button label="Висока" id="high" />
 			</li>
 		</ul>
 	</div>
