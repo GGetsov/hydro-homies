@@ -2,7 +2,7 @@
 	let title = 'Hydro homies';
 </script>
 
-<div class="bg-blue-50 flex justify-left mb-7 p-2 border-4 rounded-b-lg border-blue-50 border-t-0">
+<div class="justify-left mb-7 flex rounded-b-lg border-4 border-t-0 border-blue-50 bg-blue-50 p-2">
 	<h1
 		class="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-3xl font-extrabold text-transparent"
 	>
