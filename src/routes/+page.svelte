@@ -12,8 +12,19 @@
 		{ id: 'high', label: 'Висока' }
 	];
 
+	type FormValues = {
+		hdLevel: number;
+		newborn?: number | undefined;
+		mass?: number;
+	};
+
+	let formValues: FormValues = {
+		hdLevel: 0
+	};
+
 	function onSubmit() {
-		alert(`submitted`);
+		let dhName = ['niska', 'sredna', 'visoka'][formValues.hdLevel];
+		alert(`submitted hdLevel: ${dhName}`);
 	}
 </script>
 
@@ -23,9 +34,9 @@
 		<Box>
 			<PromptTitle title="Степен на дехидратация" />
 			<ul class="space-y-2 p-2">
-				{#each dhLevels as { id, label }}
+				{#each dhLevels as { id, label }, index}
 					<li>
-						<Button {label} {id} name="level" />
+						<Button {label} {id} name="level" value={index} bind:group={formValues.hdLevel} />
 					</li>
 				{/each}
 			</ul>

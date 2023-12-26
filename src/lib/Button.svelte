@@ -2,10 +2,12 @@
 	export let label: string;
 	export let id: string;
 	export let name: string;
+	export let value: number;
+	export let group: number;
 </script>
 
 <div class="rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 p-1 pl-4">
-	<input type="radio" {id} {name} class="peer hidden" required />
+	<input type="radio" {id} {name} class="peer hidden" {value} bind:group required />
 	<label
 		for={id}
 		class="inline-flex w-full cursor-pointer rounded-md bg-blue-50 p-2 text-blue-500 peer-checked:hidden"
