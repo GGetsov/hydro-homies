@@ -1,4 +1,5 @@
 <script lang="ts">
+	export let title: string;
 	export let options: string[];
 	export let max: number;
 
@@ -28,7 +29,7 @@
 </script>
 
 <Box>
-	<PromptTitle title="Новородено:" />
+	<PromptTitle {title} />
 	<ul class="space-y-2 p-2">
 		{#each options as option, index}
 			<li>
@@ -42,7 +43,6 @@
 						bind:checked={checked[option]}
 						class="peer hidden"
 					/>
-
 					<label
 						for="option{index}"
 						class="inline-flex w-full cursor-pointer rounded-md bg-blue-50 p-2 text-blue-500 peer-checked:hidden"

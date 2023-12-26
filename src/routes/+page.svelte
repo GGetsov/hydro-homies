@@ -5,6 +5,12 @@
 	import PromptTitle from '$lib/PromptTitle.svelte';
 	import Input from '$lib/Input.svelte';
 	import LimitedChecbox from '$lib/LimitedChecbox.svelte';
+
+	const dhLevels = [
+		{ id: 'low', label: 'Ниска' },
+		{ id: 'middle', label: 'Средна' },
+		{ id: 'high', label: 'Висока' }
+	];
 </script>
 
 <body class="bg-gradient-to-r from-cyan-500 to-blue-500">
@@ -12,18 +18,14 @@
 	<Box>
 		<PromptTitle title="Степен на дехидратация" />
 		<ul class="space-y-2 p-2">
-			<li>
-				<Button label="Ниска" id="low" name="stepen" />
-			</li>
-			<li>
-				<Button label="Средна" id="middle" name="stepen" />
-			</li>
-			<li>
-				<Button label="Висока" id="high" name="stepen" />
-			</li>
+			{#each dhLevels as { id, label }}
+				<li>
+					<Button {label} {id} name="level" />
+				</li>
+			{/each}
 		</ul>
 	</Box>
-	<LimitedChecbox options={['Доносено', 'Недоносено']} max={1} />
+	<LimitedChecbox title="Новородено" options={['Доносено', 'Недоносено']} max={1} />
 	<Box>
 		<PromptTitle title="Тегло" />
 		<Input />
