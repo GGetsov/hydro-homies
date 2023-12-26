@@ -11,23 +11,30 @@
 		{ id: 'middle', label: 'Средна' },
 		{ id: 'high', label: 'Висока' }
 	];
+
+	function onSubmit() {
+		alert(`submitted`);
+	}
 </script>
 
 <body class="bg-gradient-to-r from-cyan-500 to-blue-500">
 	<Title />
-	<Box>
-		<PromptTitle title="Степен на дехидратация" />
-		<ul class="space-y-2 p-2">
-			{#each dhLevels as { id, label }}
-				<li>
-					<Button {label} {id} name="level" />
-				</li>
-			{/each}
-		</ul>
-	</Box>
-	<LimitedChecbox title="Новородено" options={['Доносено', 'Недоносено']} max={1} />
-	<Box>
-		<PromptTitle title="Тегло" />
-		<Input />
-	</Box>
+	<form id="form" on:submit|preventDefault={onSubmit}>
+		<Box>
+			<PromptTitle title="Степен на дехидратация" />
+			<ul class="space-y-2 p-2">
+				{#each dhLevels as { id, label }}
+					<li>
+						<Button {label} {id} name="level" />
+					</li>
+				{/each}
+			</ul>
+		</Box>
+		<LimitedChecbox title="Новородено" options={['Доносено', 'Недоносено']} max={1} />
+		<Box>
+			<PromptTitle title="Тегло" />
+			<Input />
+		</Box>
+	</form>
+	<button form="form">Submit</button>
 </body>
