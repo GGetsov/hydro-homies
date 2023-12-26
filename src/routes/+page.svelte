@@ -1,9 +1,10 @@
-<script>
+<script lang="ts">
 	import Button from '$lib/Button.svelte';
 	import Title from '$lib/Title.svelte';
 	import Box from '$lib/Box.svelte';
 	import PromptTitle from '$lib/PromptTitle.svelte';
 	import Input from '$lib/Input.svelte';
+	import LimitedChecbox from '$lib/LimitedChecbox.svelte';
 </script>
 
 <body class="bg-gradient-to-r from-cyan-500 to-blue-500">
@@ -22,10 +23,9 @@
 			</li>
 		</ul>
 	</Box>
+	<LimitedChecbox options={['Доносено', 'Недоносено']} max={1} />
 	<Box>
 		<PromptTitle title="Тегло" />
 		<Input />
 	</Box>
 </body>
-
-<style lang="postcss"></style>
