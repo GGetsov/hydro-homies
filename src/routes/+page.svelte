@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Button from '$lib/Button.svelte';
 	import Title from '$lib/Title.svelte';
 	import Box from '$lib/Box.svelte';
 	import PromptTitle from '$lib/PromptTitle.svelte';
 	import Input from '$lib/Input.svelte';
 	import LimitedChecbox from '$lib/LimitedChecbox.svelte';
+	import RadioButton from '$lib/RadioButton.svelte';
 
 	const dhLevels = [
 		{ id: 'low', label: 'Ниска' },
@@ -14,17 +14,18 @@
 
 	type FormValues = {
 		hdLevel: number;
-		newborn?: number | undefined;
+		newborn: string[];
 		mass?: number;
 	};
 
 	let formValues: FormValues = {
-		hdLevel: 0
+		hdLevel: 0,
+		newborn: []
 	};
 
 	function onSubmit() {
 		let dhName = ['niska', 'sredna', 'visoka'][formValues.hdLevel];
-		alert(`submitted hdLevel: ${dhName}`);
+		alert(`submitted hdLevel: ${dhName} ${formValues.newborn} ${formValues.mass}кг`);
 	}
 </script>
 
@@ -36,15 +37,27 @@
 			<ul class="space-y-2 p-2">
 				{#each dhLevels as { id, label }, index}
 					<li>
-						<Button {label} {id} name="level" value={index} bind:group={formValues.hdLevel} />
+						<RadioButton
+							{label}
+							{id}
+							name="level"
+							value={index}
+							bind:group={formValues.hdLevel}
+							required={true}
+						/>
 					</li>
 				{/each}
 			</ul>
 		</Box>
-		<LimitedChecbox title="Новородено" options={['Доносено', 'Недоносено']} max={1} />
+		<LimitedChecbox
+			title="Новородено"
+			options={['Доносено', 'Недоносено']}
+			max={1}
+			bind:selectedOptions={formValues.newborn}
+		/>
 		<Box>
 			<PromptTitle title="Тегло" />
-			<Input />
+			<Input label="кг" id="mass" bind:value={formValues.mass} />
 		</Box>
 	</form>
 	<button form="form">Submit</button>
